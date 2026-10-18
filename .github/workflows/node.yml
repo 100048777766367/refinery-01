@@ -1,37 +1,41 @@
-name: Independent Refinery Lifecycle
+name: Vault-03 Apex Recombinant Lifecycle
 
 on:
   push:
     branches: [ main, master ]
   workflow_dispatch:
   schedule:
-    - cron: '20 */4 * * *'
+    - cron: '10 */4 * * *'
 
 permissions:
   contents: write
 
 jobs:
-  run-refinery:
+  run-vault03:
     runs-on: ubuntu-latest
     steps:
-      - name: Kéo mã nguồn Refinery
+      # 1. KÉO CODE BẰNG LINUX SHELL GỐC
+      - name: Kéo mã nguồn Vault-03
         run: |
           git clone --depth 1 https://github.com/${{ github.repository }}.git .
 
+      # 2. HẠ TẦNG MỚI NHẤT: SETUP-PYTHON V7 & PYTHON 3.14
       - name: Thiết lập môi trường Python 3.14
         uses: actions/setup-python@v7
         with:
           python-version: '3.14'
 
-      - name: Vận hành Nhà Máy Tinh Chế Độc Lập
+      # 3. VẬN HÀNH ĐỐC CÔNG F3 APEX TỰ PHÔI THAI
+      - name: Vận hành Đại Hợp Thể Vault-03
         env:
           REPO_OWNER: ${{ github.repository_owner }}
         run: python kernel.py
 
-      - name: Lưu vết xuất xưởng tinh chế vào Git
+      # 4. LƯU VẾT THÀNH PHẨM VÀ BÁO CÁO GITHUB
+      - name: Lưu vết toàn bộ thành phẩm F3 lên Git
         run: |
-          git config --global user.name "Refinery-Master-Bot"
-          git config --global user.email "bot@refinery.node"
+          git config --global user.name "Vault-03-Apex-Bot"
+          git config --global user.email "bot@vault03.node"
           
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           
@@ -44,8 +48,8 @@ jobs:
           git add -A
           
           if ! git diff --staged --quiet; then
-            git commit -m "🏭 [Refinery q'] Tinh chế dữ liệu chuẩn bán dẫn & Khởi sinh hệ sinh thái mới #(1+N) [skip ci]"
+            git commit -m "🧬 [Vault-03 F3] Tái tổ hợp Siêu XOR N^N & Tích lũy tinh hoa dòng họ #(1+N) [skip ci]"
             git push origin "$TARGET_BRANCH"
           else
-            echo "Nhà máy tĩnh lặng, không có biến thiên mới."
+            echo "Đại hợp thể tĩnh lặng, không có biến thiên mới."
           fi
