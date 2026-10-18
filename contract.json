@@ -1,0 +1,10 @@
+{
+    "contract_id": "bodhi.refinery.q1",
+    "genesis_root": "100048777766367/refinery",
+    "role": "INDEPENDENT_SUPER_REFINERY_ROOT_Q",
+    "rules": {
+        "iso_cleanroom_grade": "CLASS_1",
+        "zero_pii": true,
+        "strict_triplets": true
+    }
+}
