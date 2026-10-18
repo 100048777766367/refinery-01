@@ -1,6 +1,6 @@
 {
     "contract": "bodhi.refinery.q1",
-    "identity": "100048777766367/refinery",
-    "epoch": 2,
-    "cid": "12d362905d2d03ab7b06bced78261c48b3595da28747cd777ac1dcfe6277cb42947e8c4c110e0017ec749e7ac2cab2b8ec37a095f0b39324f50679a497009baa"
+    "identity": "100048777766367/refinery-01",
+    "epoch": 3,
+    "cid": "22a293559d0da0ca265fa3c75edfbef4454070d36ee29590f16565455355591bad04656e6194b9ad834738a1a03546c8a0a9fe7a2df666c870c27ec1275eb795"
 }
